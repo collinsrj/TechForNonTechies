@@ -17,15 +17,32 @@
 
 ## Week 1
 
-### The basics
+### The Basics
 
 ### What is a computer?
 
 ### What is an operating system?
 
+#### A brief history and the Pirates of Silicon Valley
+
+Introduction to the early OS wars involving Xerox, Microsoft, Apple, IBM, etc.
+
+#### Components of an OS
+
+* Kernel
+* Interrupts
+* Memory management
+* Thread management
+* File organization
+* User interface
+
 ### What is a program?
 
 ### Programming languages
+
+* Common characteristics of programming languages
+* Type systems
+* Compilers
 
 ### Exercises
 
@@ -37,9 +54,19 @@
 
 ### Development Environments
 
+* Dependency management
+	* Python - pip / PyPI
+	* NodeJS - npm
+	* Java, Scala, Kotlin - Maven
+	* Ruby - RubyGems
+
 ### Where is code stored?
 
+
 ### Frameworks
+
+* Packaging libraries/frameworks
+* Distributing libraries/frameworks
 
 ### Exercises
 
