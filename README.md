@@ -54,6 +54,39 @@ Introduction to the early OS wars involving Xerox, Microsoft, Apple, IBM, etc.
 * Type systems
 * Compilers
 
+ 
+* Variables
+	* Types
+		* Primitives
+			* What is a primitive?
+				* Has to do with how the data is retrieved from memory
+				* Basic building blocks of all applications
+				* Create new data types (objects) out of these primitives
+			* Integer
+			* Boolean
+			* Float
+			* String
+		* Other languages define additional primitive types
+			* Double
+			* Short
+			* Long
+			* Char
+		* String
+			* Some languages consider String a primitive, some don't
+* Operators
+	* +
+	* -
+	* *
+	* /
+* Control statements
+	* Conditionals
+	* Loops
+	* Iteration -- Maybe
+	* Switch
+		* Syntactic Sugar
+	* 
+
+
 ### Exercises
 
 #### Quizzes
@@ -160,3 +193,19 @@ Implement in python, but show implementations in other languages e.g. C, Javascr
 * Repl.it
 * Jupyter?
 * Documentation!
+
+
+### Exercises
+#### Week 1
+#### Variables
+#### Exercise 1: Variables
+#### Input/Output
+#### Exercise 2: Print "Hello, \<your name>"
+##### Code
+
+```python
+print('Please tell me your name')
+name = input()
+print(f'Hello {name}')
+```
+
