@@ -18,6 +18,9 @@
 
 ## Week 1
 
+Note: Look at Harvard CS50 for sample course outline
+
+
 ### The Basics
 
 ### What is a computer?
@@ -54,7 +57,18 @@ Introduction to the early OS wars involving Xerox, Microsoft, Apple, IBM, etc.
 * Type systems
 * Compilers
 
+Week 1
  
+# Variables
+
+Some paragraph defining this
+
+## How to declare a variable?
+
+Some example
+
+## Some other section
+
 * Variables
 	* Types
 		* Primitives
@@ -66,32 +80,65 @@ Introduction to the early OS wars involving Xerox, Microsoft, Apple, IBM, etc.
 			* Boolean
 			* Float
 			* String
-		* Other languages define additional primitive types
-			* Double
-			* Short
-			* Long
-			* Char
 		* String
 			* Some languages consider String a primitive, some don't
+		* Collections
+			* List
+			* Array
+			* Dictionary
+			* Tuple
+			* Set
 * Operators
-	* +
-	* -
-	* *
-	* /
-* Control statements
+	* Mathematical
+		* +
+		* -
+		* *
+		* /
+		* \**
+		* %
+
+
+Week 2
+
+* Operators
+	* Comparison
+		* ==
+		* !=
+		* >
+		* >=
+		* <
+		* <=
+	* Logical
+		* not
+		* is
+		* is not
+* Control structures
 	* Conditionals
+		* if
+		* elif
+		* else
 	* Loops
-	* Iteration -- Maybe
-	* Switch
-		* Syntactic Sugar
-	* 
+		* While
+		* For-in
+
+Week 3
+
+* Objects
+	* Functions
+
+Week 4
+
+* HTTP requests / responses
+	* Calling the Mastercard API
+	* Final project
 
 
 ### Exercises
+See appendix
 
 #### Quizzes
 * Simple quizes to reinforce the information presented
-* Quiz before and after each session
+* Quiz before and after each session?
 
 #### "Hello world"
 
