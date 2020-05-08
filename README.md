@@ -18,107 +18,131 @@
 
 ## Week 1
 
-Note: Look at Harvard CS50 for sample course outline
-
-
-### The Basics
-
-### What is a computer?
-
-### What is an operating system?
-
-#### A brief history and the Pirates of Silicon Valley
-
-Introduction to the early OS wars involving Xerox, Microsoft, Apple, IBM, etc.
-
-#### Components of an OS
-
-* Kernel
-* Interrupts
-* Memory management
-* Thread management
-* File organization
-	* Command line exercises to navigate the directory tree
-* User interface
-
-
-
-### What is a program?
-
-### Programming languages
-
-* Common characteristics of programming languages
-	* We can focus on Python language features since we're going to be doing exercises
-	* Compare python with other languages (e.g. C++, Java, Ruby)
-	* Explain what domains each language might be used for (C++ embedded systems, Java microservices, Javascript front end web pages, Python + data science / ML)
-	* Exerices related to this?
-		* Match a code snippet with functionality / feature
-		* Identify the language feature (e.g. For Loop, function definition)
-* Type systems
-* Compilers
-
-Week 1
+### Variables
  
-# Variables
-
-Some paragraph defining this
-
-## How to declare a variable?
-
-Some example
-
-## Some other section
-
-* Variables
-	* Types
-		* Primitives
-			* What is a primitive?
-				* Has to do with how the data is retrieved from memory
-				* Basic building blocks of all applications
-				* Create new data types (objects) out of these primitives
-			* Integer
-			* Boolean
-			* Float
-			* String
-		* String
-			* Some languages consider String a primitive, some don't
-		* Collections
-			* List
-			* Array
-			* Dictionary
-			* Tuple
-			* Set
-* Operators
-	* Mathematical
-		* +
-		* -
-		* *
-		* /
-		* \**
-		* %
+Variables are carriers of data values labeled by a descriptive name. They store relevant information that is then used by a program to perform computations or output it to the user. All variables have a data type and a value. A data type is the kind of data that the variable is storing, and the value is the actual data.
+ 
+#### Declaring a variable
+ 
+```python
+age = 23
+name = "Sam"
+```
 
 
-Week 4
+#### Primitives
 
-* HTTP requests / responses
-	* Calling the Mastercard API
-	* Final project
+Basic building blocks of all applications. You can create more complex data types (objects) out of these 4 primitives
 
+##### Integer
+
+They are positive or negative whole numbers with no decimal point
+
+```python
+totalStudents = 100
+temperature = -7
+```
+
+##### Boolean
+
+The boolean data type is either True or False
+
+```python
+isNightTime = False
+isDayTime = True
+```
+
+##### Float
+
+They represent real numbers and are written with a decimal point dividing the integer and the fractional parts.
+
+```python
+weight = 17.34
+average = -34.0
+```
+
+##### String
+
+Strings are amongst the most popular types in Python. We can create them simply by enclosing characters in single or double quotes.
+
+```python
+name = "John"
+lastName = 'Doe'
+```
+ 
+#### Collections
+ 
+##### List
+Sequence of values encapsulated in a single variable. Are created by putting comma separated values insisde square brackets. Elements inside a list can be of different data types and can change.
+
+```python
+list1 = ['physics', 'chemistry', 1997, 2000]
+list2 = [1, 2, 3, 4, 5 ]
+list3 = ["a", "b", "c", "d"]
+```
+
+To retreive a particular element of a list, we must enclose the index of the list we want in square brackets. Note: Indexes in python go from 0 to n-1, with n being the size of the list.
+
+```python
+firstElement = list1[0] #gets the first value of list1 ('physics')
+lastElement = list1[3] #gets the last value of list1 (2000)
+```
+
+We can also modify the values of the list using a similar approach.
+
+```python
+list1[0]= 'biology' #Now list1 looks like this ['biology', 'chemistry', 1997, 2000]
+list1[3] = 3000 #Now the list1 looks like this ['biology', 'chemistry', 1997, 3000]
+```
+
+##### Dictionary
+Are squences of key-value pair, where every key in the sequence is unique, but values may not be. More than one entry per key is not allowed. Keys can be of any type but can't change. Values can change. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces.
+
+```pyhton
+dict = {'Name': 'Sam', 'Age': 23, 'isLefty': False}
+```
+
+Using Dictionaries:
+
+Modifying Dictionaries:
+##### Tuple
+Same as lists but with the main difference that the elemens inside of it can't change. Created by putting different comma-separated values, and can optionally be wrapped inside parenthesis
+
+```python
+tup1 = ('physics', 'chemistry', 1997, 2000)
+tup3 = "a", "b", "c", "d"
+```
+
+Using Tuples:
+
+#### Set
+
+TODO: Add set section
+
+### Operators
+
+#### Mathematical
+
+Addition (+)
+
+Subtraction (-)
+
+Multiplication (\*)
+
+Division (/)
+
+Exponentiation (\**)
+
+Modular (%)
 
 ### Exercises
+
 See appendix
 
-#### Quizzes
+### Quiz
+
 * Simple quizes to reinforce the information presented
 * Quiz before and after each session?
-
-#### "Hello world"
-
-#### Input and Output
-
-Implement in python, but show implementations in other languages e.g. C, Javascript, R, Erlang, to cover different programming paradigms, OO, Functional, Logical, Procedural
-
-
 
 ## Week 2
 
@@ -170,10 +194,9 @@ To authorize an incoming API request, we need to validate that the request token
 
 Similar to the `+` operator used to concatenate two strings, some comparison operators can be used to compare strings as well as numbers.
 
-
 Operator	|	Description			            | Example
 ----------|----------------------------------|---------
-   `==`   | Is the left operand equal to the right operand?		     | `1 == 2` returns `False` <br> `"hello" == "hello"` returns `True` <br> `"1" == 1` returns `False`
+   `==`   | Is the left operand equal to the right operand?		   | `1 == 2` returns `False` <br> `"hello" == "hello"` returns `True` <br> `"1" == 1` returns `False`
    `!=`   | Is the left operand *not* equal to the right operand?      | `1 != 2` returns `True` <br> `"hello" != "hello"` returns `False`
    `>`    | Is the left operand greater than the right operand? | `5 > 5` returns `False`
    `>=`   | Is the left operand greater than or equal to the right operand? | `5 >= 5` returns `True`
@@ -186,7 +209,6 @@ Operator  |  Description                        | Example
 ----------|-------------------------------------|---------
   `is`    | Is the left operand the same object as the right operand? |  `p1 = {"name":"Bret"}` <br> `p2 = {"name":"Bret"}` <br> `p1 == p2` returns `True` <br> `p1 is p2` returns `False`
   ` is not` | Is the left operand *not* the same object as the right operand? | `p1 != p2` returns `False` <br> `p1 is not p2` returns `True`
-  
   
 #### Logical Operators
 
@@ -255,7 +277,6 @@ elif num > 100:
 use_number(num)
 ```
 
-
 `else` provides a fallback that is guaranteed to run if all preceeding `if` and `elif`statements evaluate `False`. This is useful if you can't predict all possible outcomes and want to provide a default behavior.
 
 ```python
@@ -284,7 +305,6 @@ if result is not None:
     
 ```
 
-
 ##### More examples
 
 Test whether a number falls between two other numbers
@@ -301,7 +321,6 @@ else:
     
 # Can you spot the bug in this code?
 ```
-
 
 #### Iteration
 
@@ -327,7 +346,6 @@ med_spent = median(total_spent)
 print(f'The median amount spent for all users is {med_spent}')
 ```
 
-
 ##### `while` Statements
 
 A `while` loop continuously repeats a block of statements as long as a given conditional expression evaluates to `True`. This is fundamentally different from a `for` loop, which iterates over the items contained within a given collection.
@@ -350,39 +368,22 @@ trans_mean = mean(trans)
 print(f'Total: {sum(trans)}, median: {median(trans)}, mean: {mean(trans)}')
 ```
 
+### Exercises
 
-### Programming Exercises
+See appendix
 
-#### Exercise 1: Authentication
+### Quiz
 
-Before we grant a user access to our system, they need to sign in to an existing account using the correct username and password combination. This is a very basic form of authentication. 
-
-Write a program which allows a user to input their username and password. Verify that the username exists and that the entered password matches the password associated with this username.
-
-##### Acceptance Criteria
-
-1. If the username entered does not exist, print an error message.
-2. If the username does exist, allow the user to enter the password.
-3. If the password entered does not match the correct password, print an error message.
-4. If the password does match, print a success message.
-
-**Extra credit:**
-
-1. Allow the user to enter their password up to *three* times before quitting the program.
-2. Allow the user to create an account if it does not already exist.
-
-
+TODO: Come up with quiz questions
 
 
 ## Week 3
 
 Week 2 enabled us to write more complex and useful programs by using control structures such as selections (`if-elif-else`) and iterations (`for` and `while`). We can now evaluate the current state of our program and make decisions by testing their conditions.
 
-### Quiz Review
+### Review Quiz
 
-#### Question 1
-
-Translate the following statement into code: Given variables x and y, if x is greater than y, print their sum, but if x is less than or equal to y, print their difference.
+1. Translate the following statement into code: Given variables x and y, if x is greater than y, print their sum, but if x is less than or equal to y, print their difference.
 
 ```python
 if x > y:
@@ -398,9 +399,7 @@ else:
     print(x - y)
 ```
 
-#### Question 2
-
-Translate the following statement into code: Input a list of users' names until an empty return and then print out all of the names that were entered.
+2. Translate the following statement into code: Input a list of users' names until an empty return and then print out all of the names that were entered.
 
 ```python3
 users = []
@@ -416,20 +415,23 @@ for name in users:
 
 ```
 
-#### Question 3
+3. Translate the following statement into code: Given variables x and y, if x plus y is greater than 0 but less than 100, print the sum. Otherwise print "Out of bounds."
 
-Translate the following statement into code: Given variables x and y, if x plus y is greater than 0 but less than 100, print the sum. Otherwise print "Out of bounds."
+### Classes, Objects, and Functions
 
+A class can be thought of as a blueprint that defines state and behavior of a particular *thing*. In the real world, you often have many objects of the same kind. For example, your bicycle is just one of many bicycles in the world. Using object-oriented terminology, we say that your bicycle object is an *instance* of the *class* of *objects* known as bicycles. Bicycles have some state (current gear, current cadence, two wheels) and behavior (change gears, brake) in common. However, each bicycle's state is independent of and can be different from that of other bicycles.
+
+While you may not know exactly what a class or object is in programming terms, you've actually been using both for the last 2 weeks! An object is an instance of a complex data type which can hold many other different types of data, and an object is an instance of that complex data type. Sound familiar? All of the collections we worked with in weeks 1 and 2 are objects!
 
 ### Objects and Functions
 
+
+And object is an instance of a class, which is just a definition of the data and behavior stored by an instance of that class, or an object.
 
 Week 3
 
 * Objects
 	* Functions
-
-
 
 ### Running software
 
@@ -439,13 +441,6 @@ Week 3
 * Jenkins
 * CI/CD
 
-	
-### The cloud
-
-### Exercises
-
-#### Dictionaries
-* Iterate over values in a dictionary
 
 ## Week 4
 
@@ -465,9 +460,10 @@ Week 3
 * **Advanced**: call a Mastercard API
 	* Requires using the OAuth signer
 
-### Summary of learning
+## Summary of learning
 
-#### Goals
+### Goals
+
 * Graduates should be able to identify terminology
 	* API
 	* JSON
@@ -486,14 +482,23 @@ Week 3
 * Jupyter?
 * Documentation!
 
-
 ### Exercises
+
 #### Week 1
-#### Variables
+
 #### Exercise 1: Variables
-#### Input/Output
-#### Exercise 2: Print "Hello, \<your name>"
-##### Code
+
+Write a python program that creates a list with five elements your name, last name, age, height (in), and whether you are lefty (True or False), then create three variables and assign it the values of the firs, middle, and last element of the list respectively, and lastly prints to screen these three variables.
+
+```python
+list1 = ["Hello", "World", 5, 3.56, False]
+first = list1[0]
+middle = list1[2]
+last = list1[4]
+print(f"{first} {middle} {last}")  #prints: Hello 5 False
+```
+
+#### Exercise 2: Say hello!
 
 ```python
 print('Please tell me your name')
@@ -501,26 +506,22 @@ name = input()
 print(f'Hello {name}')
 ```
 
+#### Week 2
 
+#### Exercise 1: Authentication
 
-### Old Stuff (Delete?)
+Before we grant a user access to our system, they need to sign in to an existing account using the correct username and password combination. This is a very basic form of authentication. 
 
-### Where is code stored?
+Write a program which allows a user to input their username and password. Verify that the username exists and that the entered password matches the password associated with this username.
 
+##### Acceptance Criteria
 
-### Frameworks
+1. If the username entered does not exist, print an error message.
+2. If the username does exist, allow the user to enter the password.
+3. If the password entered does not match the correct password, print an error message.
+4. If the password does match, print a success message.
 
-* What is a library?
-	* Spring Boot
-		* Goal to reduce boilerplate or ramp-up of a project
-* Packaging libraries/frameworks
-* Distributing libraries/frameworks
-	* Artifactory
+**Extra credit:**
 
-### Exercises
-
-* Walkthrough of a sample Spring Boot project
-	* Look at pom.xml OR build.gradle
-	* Look at src/main/java directory
-	* Where are classes saved
-	* Building an application
+1. Allow the user to enter their password up to *three* times before quitting the program.
+2. Allow the user to create an account if it does not already exist.
