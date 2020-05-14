@@ -96,13 +96,18 @@ list1[3] = 3000 #Now the list1 looks like this ['biology', 'chemistry', 1997, 30
 ```
 
 ##### Dictionary
-Are squences of key-value pair, where every key in the sequence is unique, but values may not be. More than one entry per key is not allowed. Keys can be of any type but can't change. Values can change. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces.
+Are sequences of key-value pair, where every key in the sequence is unique, but values may not be. More than one entry per key is not allowed. Keys can be of any type but can't change. Values can change. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces.
 
 ```pyhton
 dict = {'Name': 'Sam', 'Age': 23, 'isLefty': False}
 ```
 
-Using Dictionaries:
+Elements in a dictionary are access with its key. Dictionaries can be modified by assigning a value to a new or existing key.
+
+```python
+dict['Name'] = 'Bret'   #Modifies the name value
+dict['Hair'] = 'Brown'  #Adds a new value with the key 'Hair'
+```
 
 Modifying Dictionaries:
 ##### Tuple
@@ -113,11 +118,26 @@ tup1 = ('physics', 'chemistry', 1997, 2000)
 tup3 = "a", "b", "c", "d"
 ```
 
-Using Tuples:
+Elements in a tuple are access using their corresponding index
 
-#### Set
+```python
+print(tup1[0])  #output: physics
+```
 
-TODO: Add set section
+##### Set
+
+A set is similar to a dictionary, except that it stores values without an associated key. The biggest implication of this is that a set cannot contain duplicate values. It is an unordered collection of unique elements.
+
+```python
+set = set(['physics', 'chemistry'])
+print(set)  #output: {'physics', 'chemistry'}
+
+set.add('physics')
+print(set)  #output: {'physics', 'chemistry'} -- set has not been modified
+
+set.add('biology')
+print(set)  #output: {'physics', 'biology', 'chemistry'} -- order is not guaranteed
+```
 
 ### Operators
 
@@ -125,24 +145,86 @@ TODO: Add set section
 
 Addition (+)
 
+```python
+x = 5
+y = 8
+
+print(x + y)    #output: 13
+```
+
 Subtraction (-)
+
+```python
+x = 10
+y = 3
+
+print(x - y)    #output: 7
+```
 
 Multiplication (\*)
 
+```python
+x = 5
+y = 7
+
+print(x * y)    #output: 35
+```
+
 Division (/)
+
+```python
+x = 10
+y = 2
+
+print(x / y)    #output: 5
+```
 
 Exponentiation (\**)
 
-Modular (%)
+```python
+x = 5
+y = 2
+
+print(x ** y)   #output: 25
+```
+
+Modulation (%)
+
+```python
+x = 10
+y = 3
+
+print(x % y)    #output: 1
+```
 
 ### Exercises
 
-See appendix
+#### Exercise 1: Variables
+
+Write a python program that creates a list with five elements your name, last name, age, height (in), and whether you are lefty (True or False), then create three variables and assign it the values of the firs, middle, and last element of the list respectively, and lastly prints to screen these three variables.
+
+```python
+list1 = ['Hello', 'World', 5, 3.56, False]
+first = list1[0]
+middle = list1[2]
+last = list1[4]
+print(f'{first} {middle} {last}')  #prints: Hello 5 False
+```
+
+#### Exercise 2: Say hello!
+
+Write a program that prompts the user for their name. After the user enters their name, give them a personalized greeting.
+
+```python
+print('Please tell me your name')
+name = input()
+print(f'Hello {name}')
+```
+
 
 ### Quiz
 
-* Simple quizes to reinforce the information presented
-* Quiz before and after each session?
+TODO: Quiz questions for week 1
 
 ## Week 2
 
@@ -370,7 +452,24 @@ print(f'Total: {sum(trans)}, median: {median(trans)}, mean: {mean(trans)}')
 
 ### Exercises
 
-See appendix
+#### Exercise 1: Authentication
+
+Before we grant a user access to our system, they need to sign in to an existing account using the correct username and password combination. This is a very basic form of authentication. 
+
+Write a program which allows a user to input their username and password. Verify that the username exists and that the entered password matches the password associated with this username.
+
+##### Acceptance Criteria
+
+1. If the username entered does not exist, print an error message.
+2. If the username does exist, allow the user to enter the password.
+3. If the password entered does not match the correct password, print an error message.
+4. If the password does match, print a success message.
+
+**Extra credit:**
+
+1. Allow the user to enter their password up to *three* times before quitting the program.
+2. Allow the user to create an account if it does not already exist.
+
 
 ### Quiz
 
@@ -383,7 +482,7 @@ Week 2 enabled us to write more complex and useful programs by using control str
 
 ### Review Quiz
 
-1. Translate the following statement into code: Given variables x and y, if x is greater than y, print their sum, but if x is less than or equal to y, print their difference.
+Q1. Translate the following statement into code: Given variables x and y, if x is greater than y, print their sum, but if x is less than or equal to y, print their difference.
 
 ```python
 if x > y:
@@ -399,9 +498,9 @@ else:
     print(x - y)
 ```
 
-2. Translate the following statement into code: Input a list of users' names until an empty return and then print out all of the names that were entered.
+Q2. Translate the following statement into code: Input a list of users' names until an empty return and then print out all of the names that were entered.
 
-```python3
+```python
 users = []
 name = input()
 
@@ -412,35 +511,124 @@ while name != "":
 
 for name in users:
     print(name)
-
 ```
 
-3. Translate the following statement into code: Given variables x and y, if x plus y is greater than 0 but less than 100, print the sum. Otherwise print "Out of bounds."
+Q3. Translate the following statement into code: Given variables x and y, if x plus y is greater than 0 but less than 100, print the sum. Otherwise print "Out of bounds."
+
+```python
+x = input()
+y = input()
+sum = x + y
+
+if sum < 0 or sum > 100:
+    print('Out of bounds.')
+else:
+    print(f'Sum is {sum}.')
+```
 
 ### Classes, Objects, and Functions
 
 A class can be thought of as a blueprint that defines state and behavior of a particular *thing*. In the real world, you often have many objects of the same kind. For example, your bicycle is just one of many bicycles in the world. Using object-oriented terminology, we say that your bicycle object is an *instance* of the *class* of *objects* known as bicycles. Bicycles have some state (current gear, current cadence, two wheels) and behavior (change gears, brake) in common. However, each bicycle's state is independent of and can be different from that of other bicycles.
 
-While you may not know exactly what a class or object is in programming terms, you've actually been using both for the last 2 weeks! An object is an instance of a complex data type which can hold many other different types of data, and an object is an instance of that complex data type. Sound familiar? All of the collections we worked with in weeks 1 and 2 are objects!
+While you may not have realized it, you've actually been using classes for the last 2 weeks! Consider a class as a complex data type which can hold other types of data. Sound familiar? Where have we seen this in previous weeks? All of the collections we worked with in weeks 1 and 2 are classes.
 
-### Objects and Functions
+#### Define a Class
 
+A class is defined with 3 components in mind:
 
-And object is an instance of a class, which is just a definition of the data and behavior stored by an instance of that class, or an object.
+* Name
+    * Also referred to as a class's Type
+* Data
+    * The attributes that make up its state
+* Functions
+    * Blocks of code which can operate on available data
 
-Week 3
+```python
+#A simple Bicycle class example
+class Bicycle:                          #Bicycle is the name of this class
+    def __init__(self, name, color):    #Special function to create an object
+        self.name = name                #Data attribute for the name of the bicycle
+        self.color = color              #Data attribute for the color of the bicycle
+        self.gear = 1                   #Data attribute for the current gear
+    
+    def shift_up(self):                 #Function declaration
+        self.gear += 1                  #Modifies the gear attribute
+    
+    def shift_down(self):               #Function declaration
+        self.gear -= 1                  #Modifies the gear attribute
+        
+#Can you spot the bug in this code?
+```
 
-* Objects
-	* Functions
+#### Data Attributes
 
-### Running software
+Data attributes consist of the instance variables that make up an object's state. These attributes can be assigned, read, and used for operations within functions.
 
-* Pivotal Cloud Foundry
-	* Sample push application
-	* Pipelines
-* Jenkins
-* CI/CD
+#### Method Attributes
 
+There are two types of functions in Python. Functions defined globally or as part of a class can be accessed independent of a specific instances. Functions defined as part of an object instance can be accessed only in the context of that instance, and are referred to as method attributes or simply methods.
+
+```python
+class Dog:
+    def __init__(self, name):
+        self.name = name            #Data attribute for dog's name
+        self.tricks = []            #List data attribute for dog's tricks
+    
+    def add_trick(self, trick):     #Method attributes always take parameter 'self'
+        self.tricks.append(trick)   #Call list method attribute (append) to add a new trick
+        
+    def bark():                     #Class function associated with Dog
+        print('Woof!')
+        
+def bark():                         #Global function
+    Dog.bark()                      #Calls class function
+    
+my_dog = Dog('Waffles')             #Create an object instance
+my_dog.add_trick('speak')           #Call the method attribute
+
+if 'speak' in my_dog.tricks:        #Check tricks data attribute for 'speak'
+    bark()                          #Call global function to bark
+```
+
+### Exercises
+
+Q1. Define a class which represents the user of an app. A user should have a username, email address, and a collection of actions they are allowed to perform. Include methods to allow actions to be added or removed from a user instance. A user should not have more than one of each action.
+
+```python
+class User:
+    def __init__(self, username, email, actions):
+        self.username = username
+        self.email = email
+        self.actions = actions
+        
+        if not actions:
+            self.actions = set()
+    
+    def add_action(self, action):
+        self.actions.add(action)
+        
+    def remove_action(self, action):
+        self.actions.remove(action)
+```
+
+Q2. Write a program which accepts two users and an action. If user1 has an 'admin' action, allow them to add the given action to user2. If user1 is not allowed to add the action, notify them by printing an appropriate message.
+
+```python
+def add_action(user1, user2, action):
+    if 'admin' in user1.actions:
+        user2.add_action(action)
+    else:
+        print('Permission denied: must be admin to add that action to another user')
+        
+```
+
+### Quiz
+
+Q1. What is the difference between a function and a method?
+A1. A method is unique to an object instance, where a function is common for a class or program (global).
+
+Q2. What is the difference between a class and an object instance?
+A2. A class defines a type name and attributes common across a group of objects (or a *class* of objects ;)), where an object actually holds the data in its instance.
 
 ## Week 4
 
@@ -469,9 +657,6 @@ Week 3
 	* JSON
 	* Keys
 	* XML
-	* Git
-	* Maven, Gradle
-	* Microservices
 * Relate what they learned in the course to their daily work lives
 * Capstone project 
 	* DarkSky API integration
@@ -481,47 +666,3 @@ Week 3
 * Repl.it
 * Jupyter?
 * Documentation!
-
-### Exercises
-
-#### Week 1
-
-#### Exercise 1: Variables
-
-Write a python program that creates a list with five elements your name, last name, age, height (in), and whether you are lefty (True or False), then create three variables and assign it the values of the firs, middle, and last element of the list respectively, and lastly prints to screen these three variables.
-
-```python
-list1 = ["Hello", "World", 5, 3.56, False]
-first = list1[0]
-middle = list1[2]
-last = list1[4]
-print(f"{first} {middle} {last}")  #prints: Hello 5 False
-```
-
-#### Exercise 2: Say hello!
-
-```python
-print('Please tell me your name')
-name = input()
-print(f'Hello {name}')
-```
-
-#### Week 2
-
-#### Exercise 1: Authentication
-
-Before we grant a user access to our system, they need to sign in to an existing account using the correct username and password combination. This is a very basic form of authentication. 
-
-Write a program which allows a user to input their username and password. Verify that the username exists and that the entered password matches the password associated with this username.
-
-##### Acceptance Criteria
-
-1. If the username entered does not exist, print an error message.
-2. If the username does exist, allow the user to enter the password.
-3. If the password entered does not match the correct password, print an error message.
-4. If the password does match, print a success message.
-
-**Extra credit:**
-
-1. Allow the user to enter their password up to *three* times before quitting the program.
-2. Allow the user to create an account if it does not already exist.
