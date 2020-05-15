@@ -638,15 +638,100 @@ A2. A class defines a type name and attributes common across a group of objects 
 * What are microservices?
 * What is an API?
 
+### What is a Web Page?
+A webpage is a rendering of `HTML`. HTML is a language for describing how content should be presented. Here's a really simple example:
+
+```HTML
+<html>
+  <body>
+    <p>This is a paragraph.</p>
+  </body>
+</html>
+```
+
+This is turned by a web browser like Internet Explorer or [Chrome](https://www.google.com/chrome/) into the following:
+
+![Example](ExampleWebPage.png)
+
+#### The URL or Address
+A URL (Uniform Resource Locator) is a 'simple' way of referring to a server. It's an address, just like you would use to refer to a house or office. Like many things in computers, this is not the complete answer.
+
+A URL is made up on a couple of pieces:
+ - the scheme e.g. `http`
+ - the domain e.g. `www.mastercard.com`
+ - path e.g.`/index.html`
+
+#### The Scheme
+The scheme portion of the URL, tells the computer what type of URL this is. The one you're likely most familiar with is http. HTTP is a protocol. A protocol describes how to interact with a system. 
+```
+> GET / HTTP/1.1
+> Host: example.com
+>
+< HTTP/1.1 200 OK
+< Content-Type: text/html; charset=UTF-8
+< Date: Mon, 24 Feb 2020 17:09:02 GMT
+...
+```
+HTTP is a simple text based protocol. In the output above the lines starting `>` are data we send to a server. The lines starting `<` is the data coming back.
+You can try it if you like. On MacOS, open a terminal and type `nc -v www.example.com 80`. Then type in the following:
+```
+GET / HTTP/1.1
+Host: example.com
+```
+
+#### The Domain
+The `domain` part of the URL is a layer on top of IP (Internet Protocol). It points a user to an IP address. This is a numeric address pointing to a real server somewhere. An IP address e.g. `64.233.185.103`. This isn't particularly memorable, so domains give us a much easier way to refer to them. That's not their only function, but it's perhaps the most useful.
+You can think of a domain like a postcode. In the United States this would be your ZIP+4. In Ireland, this would be your Eircode. It's specific enough to get you to a building.
+
+You can see this in action by typing in the following:
+```python
+import socket
+s = socket.gethostbyname('www.mastercard.com')
+print(s)
+```
+
+#### IP Addresses
+IP addresses identify a "host" or "network interface" on the network. A host can be a real of virtual computer. Your Internet Service Provider will allocate these. In the previous section we've seen that a domain name can be resolved to an IP address. It's the IP address that your website requests go to. 
+An interesting question to ask now is, how does the website know where to send the data back to? When you connect to a website, a connection is opened between your computer and the web server. It uses your IP address as part of the connection details. You can see your public IP address by running the following `dig +short myip.opendns.com @resolver1.opendns.com`.
+
+### What is an API
+An API or Application Programming Interface is a way for bits of programs or computers to talk to each other. It is a description of what to send and what you should expect to get back. 
+It may be best to start with an example. In week 3 you encountered a class called `Bicycle`. Bicycle has two functions: `shift_up` and `shift_down`. These two functions form the API for bicycles.
+Mastercard exposes APIs to perform functions. On the Mastercard Developers platform a number of **REST APIs** are exposed. The term REST describes the approach to exposing the API. It says the API will use the HTTP protocol and that some standard HTTP methods will be used. When a user wants to create something, they `POST` it to the server. When they want to get something, they `GET` it. These two methods are the exact same methods your web browser uses. A handy side effect of using HTTP is that many REST APIs can be accessed using a normal web browser.
+
 ### Exercises
 
 #### Call an API
+The following code example shows how to call a Mastercard REST API. 
 
-* Make a call to the DarkSky API to retrieve the weather for Dublin
-* Do something with the result (e.g. get the max wind speed for the day)
+```
+import oauth1.authenticationutils as authenticationutils
+from oauth1.signer import OAuthSigner
+import requests
 
-* **Advanced**: call a Mastercard API
-	* Requires using the OAuth signer
+# Identifies the user to the API Gateway
+consumer_key = "LVX4tdsW6nM8hn7YT6I2FiLyK9Wl8lt4f0JSdEP66f2c4137!aaedc71f4e554dd5b5b0e2094ac8835a0000000000000000"
+signing_key = authenticationutils.load_signing_key('LearningProject-sandbox.p12', 'keystorepassword')
+
+merchant_id = 'DOLIUMPTYLTDWELSHPOOLWA'
+
+# Make a request object
+url = 'https://sandbox.api.mastercard.com/merchant-id/v2/merchant-ids?merchant_id={}&type=ExactMatch'.format(merchant_id)
+request = requests.Request()
+request.method = "GET"
+request.url = url
+signer = OAuthSigner(consumer_key, signing_key)
+request = signer.sign_request(url, request)
+request = request.prepare()
+
+# Send the request
+s = requests.Session()
+response = s.send(request)
+merchants = response.json()
+
+# View the results
+print(merchants)
+```
 
 ## Summary of learning
 
